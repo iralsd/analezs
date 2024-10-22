@@ -1,0 +1,11 @@
+PROGRAM A
+INTEGER a, b, c, d
+REAL f, g
+a = 5
+c = 6
+f = 7.999999
+CALL F (a, b,c)
+c = 1 + (a - c)
+END A
+a a
+REAL5
