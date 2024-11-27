@@ -130,15 +130,21 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="lex_analis.cpp" />
     <ClCompile Include="DFA.cpp" />
+    <ClCompile Include="pos_error.cpp" />
     <ClCompile Include="struct_uniqule_value.cpp" />
     <ClCompile Include="Hash.cpp" />
+    <ClCompile Include="syntax_analis.cpp" />
+    <ClCompile Include="syntax_analis.h" />
+    <ClCompile Include="Tree.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DFA.h" />
     <ClInclude Include="Hash.h" />
     <ClInclude Include="lex_analis.h" />
     <ClInclude Include="list.h" />
+    <ClInclude Include="pos_error.h" />
     <ClInclude Include="struct_unique_value.h" />
+    <ClInclude Include="Tree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

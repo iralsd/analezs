@@ -4,10 +4,12 @@
 #include <string>
 #include <algorithm>
 #include "lex_analis.h"
+#include "syntax_analis.h"
 #include "Hash.h"
+#include "Tree.h"
 using namespace std;
 
-void input_text(string& text,lex_analis& lex_a)
+/*void input_text(string& text, lex_analis& lex_a)
 {
 	ifstream in("input.txt");
 	while (getline(in, text))
@@ -15,9 +17,9 @@ void input_text(string& text,lex_analis& lex_a)
 		lex_a.add_new_unique_value(text);
 	}
 	in.close();
-}
+}*/
 
-void right_output(lex_analis& lex_a)
+/*void right_output(lex_analis& lex_a)
 {
 	ofstream out("output.txt");
 	for (int i = 0; i < 1000; i++)
@@ -54,16 +56,29 @@ void right_output(lex_analis& lex_a)
 			out << "|  Hash Index = " << i << '\n';
 		}
 	}
-}
+}*/
 
 
 int main()
 {
-	string text = "";
+	setlocale(0, "rus");
+	ifstream in("input.txt");
+	ofstream out("output.txt");
 
-	lex_analis lex_a;
+	syntax_analis anylyzator("input.txt");
+	
+	//string text = "";
 
-	input_text(text, lex_a);
-
-	right_output(lex_a);
+	if (anylyzator.Program(anylyzator.Tree))
+	{
+		anylyzator.Tree.print(out, anylyzator.Tree.get_our_root(), 0);
+		cout << "Дерево успешно построилось";
+	}
+	else
+	{
+		cout << " Дерево успешно не построилось";
+	}
+	in.close();
+	out.close();
+	return 0;
 }

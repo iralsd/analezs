@@ -10,6 +10,5 @@ public:
 	List* predNode = NULL;
 	List* nextNode = NULL;
 	unique_value value_actual_state;
-	string type = "none";
-	string name = "none";
+	
 };

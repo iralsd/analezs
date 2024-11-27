@@ -1,11 +1,8 @@
 PROGRAM A
-INTEGER a, b, c, d
-REAL f, g
-a = 5
-c = 6
-f = 7.999999
-CALL F (a, b,c)
-c = 1 + (a - c)
+REAL s, m
+INTEGER a
+a = a + b
+a = a + (7.0 + a)
+CALL a (a,b) 
+a = a
 END A
-a a
-REAL5

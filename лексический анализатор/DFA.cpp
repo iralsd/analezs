@@ -50,17 +50,17 @@ DFA::DFA()//строим таблицу переходов
 	}
 
 }
-void check_for_state(string& our_string, int& actual_state, Hash& Values)
+void check_for_state(string& our_string, int& actual_state, unique_value& Values)
 {
 	if (actual_state == 1)
 	{
 		unique_value value_new(our_string, "int_num");
-		Values.add_new_word_in_table(value_new);
+		Values= value_new;;
 	}
 	else if (actual_state == 2)
 	{
 		unique_value value_new(our_string, "real_num");
-		Values.add_new_word_in_table(value_new);
+		Values = value_new;
 	}
 	else if (actual_state == 3)
 	{
@@ -73,48 +73,48 @@ void check_for_state(string& our_string, int& actual_state, Hash& Values)
 		}
 		if (flag)
 		{
-			unique_value value_new(our_string, "WordsKey");//отправлять сразу в хэш таблицу
-			Values.add_new_word_in_table(value_new);
+			unique_value value_new(our_string, "WordsKey");
+			Values= value_new;
 		}
 		else
 		{
 			unique_value value_new(our_string, "Id");
-			Values.add_new_word_in_table(value_new);
+			Values= value_new; (value_new);
 		}
 	}
 	else if (actual_state == 4)
 	{
 		unique_value value_new(our_string, "Error");
-		Values.add_new_word_in_table(value_new);
+		Values=value_new;
 	}
 }
-bool check_for_separting_symbols(char our_symbol, Hash& Values)
+bool check_for_separting_symbols(char our_symbol, unique_value& Values)
 {
 	DFA buffer;
 	for (int i = 0; i < buffer.get_Symbols_Separating().size(); i++)
 	{
 		if (our_symbol == buffer.get_Symbols_Separating()[i])
 		{
-			string name = "";
-			name += our_symbol;
-			unique_value new_value(name, "Symbols_of_Separating");
-			Values.add_new_word_in_table(new_value);
+			Values.name = our_symbol;
+			Values.type = "Symbols_of_Separating";
+			//unique_value new_value(name, "Symbols_of_Separating");
+			//Values.add_new_word_in_table(new_value);
 			return true;
 		}
 	}
 	return false;
 }
-bool check_for_oper_symbols(char our_symbol, Hash& Values)
+bool check_for_oper_symbols(char our_symbol, unique_value& Values)
 {
 	DFA buffer;
 	for (int i = 0; i < buffer.get_Symbols_Operations().size(); i++)
 	{
 		if (our_symbol == buffer.get_Symbols_Operations()[i])
 		{
-			string name = "";
-			name += our_symbol;
-			unique_value new_value(name, "Symbols_of_Operation");
-			Values.add_new_word_in_table(new_value);
+			Values.name = our_symbol;
+			Values.type = "Symbols_of_Operation";
+			//unique_value new_value(name, "Symbols_of_Operation");
+			
 			return true;
 		}
 	}
@@ -139,24 +139,32 @@ vector<char> DFA::get_Symbols_Separating()
 {
 	return Symbols_Separating;
 }
+vector<char> DFA::get_Symbols_of_Separating()
+{
+	return Symbols_of_Separating;
+}
 
-void DFA::vector_for_unique_value(string& line, Hash& Values)
+
+unique_value DFA::vector_for_unique_value(string& line)
 {
 	int actual_state = 0;
 	string our_string = "";
 	for (int i = 0; i < line.size(); i++)
 	{
+		unique_value Values;
 		if (check_for_oper_symbols(line[i], Values))
 		{
 			actual_state = 0;
 			our_string.clear();
 			our_string.shrink_to_fit();
+			return Values;
 		}
 		else if (check_for_separting_symbols(line[i], Values))
 		{
 			actual_state = 0;
 			our_string.clear();
 			our_string.shrink_to_fit();
+			return Values;
 		}
 		else if (line[i] == ' ' || line[i] == '\t' || line[i] == '\n')
 		{
@@ -164,6 +172,7 @@ void DFA::vector_for_unique_value(string& line, Hash& Values)
 			actual_state = 0;
 			our_string.clear();
 			our_string.shrink_to_fit();
+			return Values;
 		}
 		else
 		{
@@ -191,5 +200,8 @@ void DFA::vector_for_unique_value(string& line, Hash& Values)
 
 		}
 	}
+	unique_value Values;
 	check_for_state(our_string, actual_state, Values);
+	return Values;
+
 }
