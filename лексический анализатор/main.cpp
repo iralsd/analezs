@@ -7,6 +7,7 @@
 #include "syntax_analis.h"
 #include "Hash.h"
 #include "Tree.h"
+#include "semantic_analis.h"
 using namespace std;
 
 /*void input_text(string& text, lex_analis& lex_a)
@@ -71,6 +72,11 @@ int main()
 
 	if (anylyzator.Program(anylyzator.Tree))
 	{
+		semantic_analyzer semen("polskay.txt", anylyzator.Tree, anylyzator.table);
+		if (!semen.Program(anylyzator.Tree))
+		{
+			return 0;
+		}
 		anylyzator.Tree.print(out, anylyzator.Tree.get_our_root(), 0);
 		cout << "Дерево успешно построилось";
 	}

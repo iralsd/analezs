@@ -1,0 +1,57 @@
+Program
+	Begin
+		WordsKey :  PROGRAM
+		Id :  ID
+	Descriptions
+		Descr
+			Type
+				WordsKey :  REAL
+			Varlist
+				Id :  s
+				Symbols_of_Separating :  ,
+				Varlist
+					Id :  b
+					Symbols_of_Separating :  ,
+					Varlist
+						Id :  m
+		Descriptions
+			Descr
+				Type
+					WordsKey :  INTEGER
+				Varlist
+					Id :  t
+					Symbols_of_Separating :  ,
+					Varlist
+						Id :  h
+						Symbols_of_Separating :  ,
+						Varlist
+							Id :  cat
+			Descriptions
+				Descr
+					Type
+						WordsKey :  REAL
+					Varlist
+						Id :  l
+				
+	Operators
+		Op
+			Id :  t
+			Symbols_of_Operation :  =
+			Expr
+				SimpleExpr
+					int_num :  5
+		Operators
+			Op
+				WordsKey :  CALL
+				Id :  fun
+				Symbols_of_Separating :  (
+				Varlist
+					Id :  s
+					Symbols_of_Separating :  ,
+					Varlist
+						Id :  t
+				Symbols_of_Separating :  )
+			
+	End
+		WordsKey :  END
+		Id :  gfg

@@ -11,6 +11,7 @@ class Node
 private:
 	string data;
 	vector<Node> vector_of_child;
+	string polskay;
 public:
 	Node()
 	{
@@ -41,6 +42,10 @@ public:
 	vector<Node>& get_child_vector()
 	{
 		return vector_of_child;
+	}
+	string& get_polskay()
+	{
+		return polskay;
 	}
 };
 class Tree_of_syntax

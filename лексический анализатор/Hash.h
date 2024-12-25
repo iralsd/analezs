@@ -16,4 +16,6 @@ public:
 	void get_hash_table_index(string& actual_line, long long& index);
 	void add_new_word_in_table(unique_value& our_value);
 	List* get_hash_table();
+	void put_new_atribute(string name_unique_value, string new_name_atribute);
+	unique_value get_unique_value(unique_value uv);
 };

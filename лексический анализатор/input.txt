@@ -1,8 +1,7 @@
-PROGRAM A
-REAL s, m
-INTEGER a
-a = a + b
-a = a + (7.0 + a)
-CALL a (a,b) 
-a = a
-END A
+PROGRAM ID
+REAL s,b,m
+INTEGER t,h,cat
+REAL l
+t = 5
+CALL fun(s,t)
+END ID

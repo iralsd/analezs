@@ -42,6 +42,9 @@
     <ClCompile Include="syntax_analis.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="semantic_analis.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="list.h">
@@ -63,6 +66,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="semantic_analis.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

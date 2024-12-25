@@ -1,4 +1,5 @@
 #include "syntax_analis.h"
+#include "Tree.h"
 
 //Функция, которая возвращает значение True или False, в зависимости от сборки дерево Program
 bool syntax_analis::Program(Tree_of_syntax& Tree)
